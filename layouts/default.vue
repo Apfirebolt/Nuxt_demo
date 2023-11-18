@@ -1,24 +1,7 @@
-
 <template>
-  <div>
-    <header>
-      <p>
-        Default Layout
-      </p>
-    </header>
-
-    <footer>
-      <!-- Add your footer content here -->
-    </footer>
+  <div class="flex flex-col justify-between min-h-screen">
+    <NavBar />
+    <slot />
+    <Footer />
   </div>
 </template>
-
-<script>
-export default {
-  name: 'DefaultLayout',
-}
-</script>
-
-<style>
-/* Add your custom styles for the layout here */
-</style>

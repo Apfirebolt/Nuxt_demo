@@ -1,0 +1,273 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "utilities.scss";
+
+// general
+body {
+  background-color: $bg-light;
+  @apply dark:bg-[#121212];
+}
+html {
+  scroll-behavior: smooth;
+}
+.bgLight {
+  background-color: $bg-light;
+}
+h1 {
+  @apply text-white flex flex-col justify-center text-4xl lg:text-6xl 2xl:text-[4.1rem] 3xl:text-7xl font-bold;
+  @include header-font;
+}
+h2.profile-title {
+  @include sub-font-family;
+  @apply text-3xl xl:text-4xl font-bold text-gray-800 dark:text-white;
+}
+h2:not(.profile-title) {
+  @include sub-font-family;
+  @include sub-title;
+  @apply dark:text-white;
+}
+h3 {
+  @include sub-font-family;
+}
+
+// Navigation Bar
+nav#nav-bar {
+  @apply z-30 flex items-center justify-between sticky top-0 w-full shadow transition-all duration-200 ease-in-out;
+
+  button {
+    @apply flex items-center text-2xl font-bold cursor-pointer;
+
+    img {
+      @apply w-10 h-10;
+    }
+
+    p {
+      @include logo-font;
+      @apply hidden lg:block text-3xl font-bold ml-2 tracking-widest;
+    }
+  }
+
+  .nav-links {
+    @apply hidden w-8/12 lg:flex justify-center font-medium lg:gap-8;
+
+    a {
+      @include header-font;
+      @apply text-lg text-green-300 lg:text-lg xl:text-xl;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  }
+
+  .mobile-hamburger {
+    @apply lg:hidden;
+
+    .menu-button {
+      @apply flex items-center;
+    }
+
+    svg {
+      @apply w-8 h-8;
+    }
+
+    .menu-items {
+      @apply absolute right-0 w-64 mt-5 mr-8 md:mr-10 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+
+      .menu-item-padding {
+        @apply px-1 py-1;
+
+        a {
+          @apply flex rounded-md items-center w-full px-4 py-3 font-medium text-lg;
+        }
+      }
+    }
+  }
+}
+
+// header
+header {
+  @apply relative w-full overflow-hidden flex;
+
+  div:first-child {
+    @apply absolute w-full h-full;
+
+    img {
+      @apply w-full h-full object-cover object-top;
+    }
+  }
+
+  div:last-child {
+    @apply relative w-full text-center px-1 md:px-16 lg:px-28 xl:px-40 pt-5 2xl:pt-10;
+  }
+}
+
+// profile section
+.profile-social-icons {
+  @apply flex items-center mt-6 -mx-2;
+
+  a {
+    @apply mx-2;
+  }
+
+  a svg {
+    @apply w-5 h-5 xl:w-6 xl:h-6 text-gray-700 dark:text-white fill-current hover:text-gray-600 dark:hover:text-gray-200;
+  }
+}
+
+.summary-skill-list-container {
+  @apply flex mt-3 gap-20;
+
+  ul {
+    @apply list-disc list-inside;
+
+    li {
+      @include sub-font-family;
+      @apply py-0.5 text-gray-600 dark:text-white lg:text-lg;
+    }
+  }
+}
+
+.profile-description-container {
+  @include sub-font-family;
+  @apply pt-4 space-y-4 text-gray-600 dark:text-white lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl 3xl:max-w-3xl;
+
+  p {
+    @apply lg:text-lg leading-7;
+  }
+
+  word-spacing: 5px;
+}
+
+.profile-img-container {
+  @apply relative max-w-xs lg:max-w-xxs xl:max-w-md p-1.5 dark:p-0 rounded-full shadow-btm-right group-hover:shadow-top-right transition-all duration-300 ease-in;
+
+  img {
+    @apply bg-white object-cover object-top rounded-full group-hover:grayscale transition-all ease-out duration-300;
+  }
+}
+
+// timeline section
+section#timeline {
+  @include sub-font-family;
+  @apply max-w-[600px] mx-auto px-1 md:px-0 py-20 md:py-24;
+
+  h3 {
+    @apply md:text-xl text-black dark:text-white font-bold;
+  }
+
+  span {
+    @apply flex items-center gap-1 px-2 py-1 text-gray-700 dark:text-gray-400 text-xs md:text-sm font-semibold bg-gray-300 dark:bg-gray-800 bg-opacity-70 rounded;
+  }
+
+  ul {
+    @apply mt-7;
+
+    li {
+      @apply flex flex-col items-center justify-center;
+    }
+  }
+
+  .line {
+    @apply h-10 w-[1px] bg-gray-300 dark:bg-gray-600;
+  }
+
+  .timeline-card {
+    @apply w-full dark:text-white p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-900 dark:bg-opacity-30;
+
+    div {
+      @apply flex items-center justify-between;
+    }
+  }
+
+  p {
+    @apply text-sm md:text-base mt-2;
+  }
+
+  a {
+    @apply flex gap-2 items-center w-fit text-sm md:text-base py-1 px-3 mt-3 rounded border border-gray-400 dark:border-gray-700;
+  }
+}
+
+// footer
+.footer-section {
+  @apply bg-white dark:bg-[#121212] pt-2;
+
+  footer {
+    @apply max-w-screen-2xl px-4 md:px-8 mx-auto;
+
+    div.copyright {
+      @include header-font;
+      @apply text-gray-500 dark:text-white text-sm text-center py-4 xl:py-4 2xl:py-5;
+    }
+  }
+
+  .social-icons-and-navigation {
+    @apply flex flex-col items-center border-t pt-3 lg:pt-6 xl:pt-4 2xl:pt-6;
+
+    nav {
+      @include header-font;
+      @apply flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:gap-6 mb-4;
+    }
+
+    div {
+      @apply flex gap-4;
+    }
+  }
+}
+
+.footerBtn {
+  @apply text-gray-500 hover:text-black dark:text-white dark:hover:text-gray-200 active:text-black transition duration-100;
+}
+
+.footerIcon {
+  @apply text-gray-500 hover:text-gray-500 dark:text-white dark:hover:text-gray-200 active:text-gray-600 transition duration-100;
+
+  svg {
+    @apply w-6 h-6;
+  }
+}
+
+// modal
+.modal-container {
+  @apply relative z-50;
+
+  .modal-bg {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity duration-200 ease-out;
+  }
+}
+
+.modal-fixed-wrapper {
+  @apply fixed inset-0 z-10 overflow-y-auto;
+
+  p {
+    @include sub-font-family;
+  }
+
+  .modal-size {
+    @apply flex min-h-full items-center justify-center p-4 text-center sm:p-0;
+
+    .modal {
+      @apply relative p-5 lg:px-10 transform lg:overflow-hidden rounded-lg bg-gray-100 text-left shadow-xl transition-all sm:my-8 h-[600px] 2xl:h-[650px] sm:w-full sm:max-w-lg md:max-w-xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl;
+    }
+
+    .x-icon {
+      @apply w-7 h-7 absolute right-3 lg:top-3 hover:text-red-600 transition duration-300 ease-out cursor-pointer;
+    }
+
+    .modal-heading {
+      @include sub-font-family;
+      @apply text-2xl lg:text-4xl font-bold lg:text-center;
+    }
+
+    hr {
+      @apply my-2 lg:mb-4 text-gray-800;
+    }
+
+    .modal-content-wrapper {
+      @apply space-y-3 lg:space-y-0 gap-7 h-[88%] overflow-y-auto;
+
+      hr {
+        @apply lg:hidden;
+      }
+    }
+  }
+}
